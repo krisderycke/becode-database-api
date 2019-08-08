@@ -2,8 +2,9 @@ CREATE DATABASE IF NOT EXISTS `My Notes`;
 
 CREATE TABLE `ID`(
 	ID      INT              NOT NULL AUTO_INCREMENT,
-  	TITLE   VARCHAR (20)    ,
-   	NOTE    VARCHAR(2000)    ,
+  	Title   VARCHAR (20)    ,
+   	Note_Context    VARCHAR(2000)    ,
+	Date    DATE	NOT NULL,
 	PRIMARY KEY (ID)
 );
 
