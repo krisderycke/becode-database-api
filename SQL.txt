@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `My Notes`;
+CREATE DATABASE IF NOT EXISTS `note_app`;
 
-CREATE TABLE `ID`(
+CREATE TABLE My Notes(
 	ID      INT              NOT NULL AUTO_INCREMENT,
   	Title   VARCHAR (20)    ,
    	Note_Context    VARCHAR(2000)    ,
