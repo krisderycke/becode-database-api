@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS `My Notes`;
+
+CREATE TABLE `ID`(
+	ID      INT              NOT NULL AUTO_INCREMENT,
+  	TITLE   VARCHAR (20)    ,
+   	NOTE    VARCHAR(2000)    ,
+	PRIMARY KEY (ID)
+);
+
