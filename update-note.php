@@ -59,7 +59,8 @@ if (isset($_GET['id'])) {
    <title>CRUD</title>
 </head>
 <body>
-    <h1>Delete note</h1>
+  <div class="flex">
+    <h1>update note</h1>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote><strong><?php echo escape($_POST['Title']); ?></strong> successfully updated.</blockquote>
@@ -78,7 +79,7 @@ if (isset($_GET['id'])) {
 
 <a href="index.php">Back to home</a>
 
-
+</div>
 </body>
 </html>
     <!-- <input name="csrf" type="hidden" value="  -->

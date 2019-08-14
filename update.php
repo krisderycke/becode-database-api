@@ -36,6 +36,7 @@ try {
    <title>CRUD</title>
 </head>
 <body>
+  <div class="flex">
     <h1>Edit note</h1>
     <table>
   <thead>
@@ -61,5 +62,6 @@ try {
 </table>
 
 <a href="index.php">Back to home</a>
+</div>
 </body>
 </html>

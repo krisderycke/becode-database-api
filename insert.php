@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-
+<div class="flex">
 <h1>Create new note</h1>
 
 <?php if (isset($_POST['submit']) && $stmt) { ?>
@@ -75,5 +75,6 @@ if (isset($_POST['submit'])) {
 </form>
 
 <a href="index.php">Back to home</a>
+</div>
 </body>
 </html>

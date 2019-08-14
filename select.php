@@ -89,6 +89,7 @@ if (isset($_POST['submit'])) {
    <title>CRUD</title>
 </head>
 <body>
+ 
 <h1>Find note</h1>
 <?php
 if (isset($_POST['submit']) || isset($_POST['submitAll'])) {
@@ -122,7 +123,7 @@ if (isset($_POST['submit']) || isset($_POST['submitAll'])) {
     No results found for <?php echo escape($_POST['title']); ?>.
   <?php }
 } ?>
-
+ <div class="flex">
 <form method="post">   
     <input type="submit" name="submitAll" value="View All Notes">
 </form>
@@ -134,6 +135,6 @@ if (isset($_POST['submit']) || isset($_POST['submitAll'])) {
 </form>
 
 <a href="index.php">Back to home</a>
-
+</div>
 </body>
 </html>

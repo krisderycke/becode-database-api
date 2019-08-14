@@ -8,13 +8,14 @@
    <title>CRUD</title>
 </head>
 <body>
+<div class="flex">
 <h1>CRUD excercise</h1>
-<ul>
-   <li><a href="insert.php">Create Note</a></li>
-   <li><a href="select.php">Read Note</a></li>
-   <li><a href="update.php">Update Note </a></li>
-   <li><a href="delete.php">Delete Note</a></li>
-</ul>
-   
+   <ul>
+      <li><a href="insert.php">Create Note</a></li>
+      <li><a href="select.php">Read Note</a></li>
+      <li><a href="update.php">Update Note </a></li>
+      <li><a href="delete.php">Delete Note</a></li>
+   </ul>
+</div>
 </body>
 </html>

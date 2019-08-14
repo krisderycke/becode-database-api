@@ -44,7 +44,8 @@ try {
    <title>CRUD</title>
 </head>
 <body>
-    <h1>Delete note</h1>
+<div class="flex">   
+<h1>Delete note</h1>
 
 <?php if ($success) echo $success; ?>
 
@@ -75,5 +76,6 @@ try {
 </form>
 
 <a href="index.php">Back to home</a>
+</div>
 </body>
 </html>
