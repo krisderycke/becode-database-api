@@ -1,7 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="style.css">
+   <style>
+    
+   </style>
+   <title>CRUD</title>
+</head>
+<body>
+<h1>CRUD excercise</h1>
+<form method="post">
+        <label for="title">Enter Title</label>
+            <input type="text" name="title" id="title">
+        <label for="note">Enter Note</label>
+            <textarea type="text" name="note" id="note"></textarea>
+            <input type="submit" name="submit" value="Submit">
+</form>
+
+<a href="index.php">Back to home</a>
+
 <?php
 
-// date_default_timezone_set("Europe/Brussels");
-// $now = date("d/m/Y-h:i") ;
 
 // connect to database
  require 'server.php';  
@@ -49,3 +71,5 @@ $noteSani =filter_var($_POST['note'], FILTER_SANITIZE_STRING);
 // close connection
 unset($pdo);
 ?>
+</body>
+</html>
