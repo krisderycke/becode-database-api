@@ -1,3 +1,50 @@
+<?php
+if (isset($_POST['submit'])) {
+    require "common.php";
+    // connect to database
+    require 'server.php';  
+    $noteSani =filter_var($_POST['note'], FILTER_SANITIZE_STRING);
+    $titleSani=filter_var($_POST['title'], FILTER_SANITIZE_STRING);
+
+    try{
+    // $newNote= array(
+    
+    //snippet to use instead of hardcoding everything
+    // $sql= sprintf(
+    //         "INSERT INTO %s (%s) values (%s)",
+    //         "my notes",
+    //         implode(",", array_keys($newNote)),
+    //         ":" . implode(", :", array_keys($newNote))
+    //         );
+    $sql = "INSERT INTO `my notes` (Title, Note_Context) VALUES (:title, :context)";
+    $stmt = $pdo->prepare($sql);
+    // Validate input
+    if (empty($titleSani)) {
+        $feedback['validate_titleError'] = "please fill in a title.";
+    } else if (strlen($titleSani) > 20) {
+        $feedback['validate_titleError'] = "Title can't be longer than 20 characters.";
+    } else {
+        $titleValidated = $titleSani;
+    }
+    if (empty($noteSani)) {
+        $feedback['validate_noteError'] = "Your note is empty.";
+    } else {
+        $noteValidated = $noteSani;
+    }
+ 
+    
+    // use parameters to statement
+    $stmt->bindParam(':title', $titleValidated, PDO::PARAM_STR);
+    $stmt->bindParam(':context',$noteValidated, PDO::PARAM_STR);
+    
+    // execute sql statement
+    $stmt->execute();
+}catch(PDOException $error) {
+    echo $sql . "<br>" . $error->getMessage();
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +58,14 @@
    <title>CRUD</title>
 </head>
 <body>
-<h1>CRUD excercise</h1>
+
+
+<h1>Create new note</h1>
+
+<?php if (isset($_POST['submit']) && $stmt) { ?>
+   <?php echo $_POST['title']; ?> successfully added.
+<?php } ?>
+
 <form method="post">
         <label for="title">Enter Title</label>
             <input type="text" name="title" id="title">
@@ -21,55 +75,5 @@
 </form>
 
 <a href="index.php">Back to home</a>
-
-<?php
-
-
-// connect to database
- require 'server.php';  
-
-
-// sanitize variables
-$titleSani=filter_var($_GET['title'], FILTER_SANITIZE_STRING);
-$noteSani =filter_var($_POST['note'], FILTER_SANITIZE_STRING);
-
-
-
-    // insert query notation
-    try {
-        $sql = "INSERT INTO `my notes` (Title, Note_Context) VALUES (:title, :context)";
-        $stmt = $pdo->prepare($sql);
-
-        // Validate input
-        if (empty($titleSani)) {
-            $feedback['validate_titleError'] = "please fill in a title.";
-        } else if (strlen($titleSani) > 20) {
-            $feedback['validate_titleError'] = "Title can't be longer than 20 characters.";
-        } else {
-            $titleValidated = $titleSani;
-        }
-        if (empty($noteSani)) {
-            $feedback['validate_noteError'] = "Your note is empty.";
-        } else {
-            $noteValidated = $noteSani;
-        }
-     
-        
-        // use parameters to statement
-        $stmt->bindParam(':title', $titleValidated, PDO::PARAM_STR);
-        $stmt->bindParam(':context',$noteValidated, PDO::PARAM_STR);
-        
-        // execute sql statement
-        $stmt->execute();
-        echo "Records inserted!";
-       
-} catch(PDOException $e){
-    die("ERROR: Could not prepare/execute query: $sql. " . $e->getMessage());
-}
-
-
-// close connection
-unset($pdo);
-?>
 </body>
 </html>
