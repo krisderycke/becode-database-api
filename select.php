@@ -48,39 +48,41 @@
 // unset($pdo);
 // 
 
-if (isset($_POST['submit'])) {
-    try {
-      require "server.php";
-      require "common.php";
+// if (isset($_POST['submit'])) {
+//     try {
+//       require "server.php";
+//       require "common.php";
   
-    $sql = "SELECT *  FROM `my notes` WHERE Title = :title ";
+//     $sql = "SELECT `ID`,`Title`  FROM `my notes`";
     
-      $title = $_POST['title'];
+//       $title = $_POST['title'];
   
-      $statement = $pdo->prepare($sql);
-       $statement->bindParam(':title', $title, PDO::PARAM_STR);
-      $statement->execute();
+//       $statement = $pdo->prepare($sql);
+//        $statement->bindParam(':title', $title, PDO::PARAM_STR);
+//       $statement->execute();
   
-      $result = $statement->fetchAll();
-    } catch(PDOException $error) {
-      echo $sql . "<br>" . $error->getMessage();
-    }
-  }
+//       $result = $statement->fetchAll();
+//     } catch(PDOException $error) {
+//       echo $sql . "<br>" . $error->getMessage();
+//     }
+//   }
   /////////////query for all notes
-  if (isset($_POST['submitAll'])) {
+  // if (isset($_POST['submitAll'])) {
     try {
       require "server.php";
       require "common.php";
-          $sql = "SELECT *  FROM `my notes` ORDER BY ID";
+          $sql = "SELECT `ID`,`Title`  FROM `my notes` ORDER BY ID";
           $statement = $pdo->prepare($sql);
           $statement ->execute();
           $result = $statement->fetchAll();
+
+          echo json_encode($result, JSON_PRETTY_PRINT);
         } catch(PDOException $error) {
           echo $sql . "<br>" . $error->getMessage();
         }
-      }
+      
 ?>
-
+<!-- 
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,4 +139,4 @@ if (isset($_POST['submit']) || isset($_POST['submitAll'])) {
 <a href="index.php">Back to home</a>
 </div>
 </body>
-</html>
+</html> -->

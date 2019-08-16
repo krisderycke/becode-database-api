@@ -36,7 +36,7 @@ try {
    <title>CRUD</title>
 </head>
 <body>
-  <div class="flex">
+  <!-- <div class="flex"> -->
     <h1>Edit note</h1>
     <table>
   <thead>
