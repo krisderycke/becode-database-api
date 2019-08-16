@@ -67,14 +67,15 @@
 //     }
 //   }
   /////////////query for all notes
-  // if (isset($_POST['submitAll'])) {
+  // if (isset($_POST['submitAll'])) 
+  header('Content-type: text/javascript');
     try {
       require "server.php";
       require "common.php";
-          $sql = "SELECT `ID`,`Title`  FROM `my notes` ORDER BY ID";
+          $sql = "SELECT `ID`,`Title`  FROM `my notes`";
           $statement = $pdo->prepare($sql);
           $statement ->execute();
-          $result = $statement->fetchAll();
+          $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
           echo json_encode($result, JSON_PRETTY_PRINT);
         } catch(PDOException $error) {
@@ -82,61 +83,3 @@
         }
       
 ?>
-<!-- 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="style.css">
-   <title>CRUD</title>
-</head>
-<body>
- 
-<h1>Find note</h1>
-<?php
-if (isset($_POST['submit']) || isset($_POST['submitAll'])) {
-  if ($result && $statement->rowCount() > 0) { ?>
-    <h2>Results</h2>
-
-    <table>
-      <thead>
-<tr>
-  <th>#</th>
-  <th>Title</th>
-  <th>Note</th>
-  <th>Date</th>
-  
-</tr>
-      </thead>
-      <tbody>
-  <?php foreach ($result as $row) { ?>
-      <tr>
-<td><?php echo escape($row["ID"]); ?></td>
-<td><?php echo escape($row["Title"]); ?></td>
-<td><?php echo escape($row["Note_Context"]); ?></td>
-<td><?php echo escape($row["Timestamp"]); ?></td>
-
-      </tr>
-    <?php } ?>
-      </tbody>
-  </table>
-  <?php } else { ?>
-
-    No results found for <?php echo escape($_POST['title']); ?>.
-  <?php }
-} ?>
- <div class="flex">
-<form method="post">   
-    <input type="submit" name="submitAll" value="View All Notes">
-</form>
-
-<form method="post">
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" placeholder="search titel">
-    <input type="submit" name="submit" value="View Results">
-</form>
-
-<a href="index.php">Back to home</a>
-</div>
-</body>
-</html> -->
