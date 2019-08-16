@@ -45,12 +45,12 @@ try {
 </head>
 <body>
 <!-- <div class="flex">    -->
-<h1>Delete note</h1>
+  <div class="list">
+<h1 style="color:white">Delete note</h1>
 
 <?php if ($success) echo $success; ?>
 
 <form method="post">
-  <!-- <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>"> -->
   <table>
     <thead>
       <tr>
@@ -76,6 +76,7 @@ try {
 </form>
 
 <a href="index.php">Back to home</a>
+</div>
 </div>
 </body>
 </html>

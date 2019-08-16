@@ -17,5 +17,6 @@
       <li><a href="delete.php">Delete Note</a></li>
    </ul>
 </div>
+
 </body>
-</html>
+</html>  

@@ -1,3 +1,10 @@
+body {
+  /* background: rgb(168, 152, 152); */
+  background: url(bandwidth-close-up-connection-1148820.jpg) center center
+    no-repeat;
+  background-size: cover;
+}
+
 .flex {
   width: 50%;
   height: 50vh;
@@ -10,7 +17,7 @@
   border: 1px rgba(0, 0, 0, 0.26) solid;
   border-radius: 5px;
   box-shadow: 4px 3px 14px 0px black;
-  background: rgb(199, 179, 179);
+  background: rgba(199, 179, 179, 0.807);
 }
 
 label {
@@ -19,9 +26,11 @@ label {
 }
 
 table {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
+
   border-spacing: 0;
   margin-bottom: 10px;
+  border: 1px solid black;
 }
 
 td,
@@ -32,6 +41,10 @@ th {
 tr:nth-child(even) {
   background: #ccc;
 }
+tr:nth-child(odd) {
+  background: rgba(150, 97, 97, 0.815);
+  color: white;
+}
 
 ul {
   list-style: none;
@@ -39,6 +52,21 @@ ul {
 li {
   margin: 10px;
 }
+
+a {
+  color: white;
+}
 a:hover {
   color: gray;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+form {
+  margin-left: 20%;
 }

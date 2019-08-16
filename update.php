@@ -37,7 +37,9 @@ try {
 </head>
 <body>
   <!-- <div class="flex"> -->
-    <h1>Edit note</h1>
+  <div class="list">
+
+    <h1 style="color:white">Edit note</h1>
     <table>
   <thead>
     <tr>
@@ -62,6 +64,7 @@ try {
 </table>
 
 <a href="index.php">Back to home</a>
+
 </div>
 </body>
 </html>
