@@ -1,6 +1,7 @@
 <?php
-
-
+ 
+ header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 // require 'server.php';
 // try {
 //    $sqlSelect = "SELECT * FROM `my notes` ORDER BY `ID`";
@@ -72,7 +73,7 @@
     try {
       require "server.php";
       require "common.php";
-          $sql = "SELECT `ID`,`Title`  FROM `my notes`";
+          $sql = "SELECT `ID`,`Title`,`Note_Context`  FROM `my notes` ORDER BY `ID`";
           $statement = $pdo->prepare($sql);
           $statement ->execute();
           $result = $statement->fetchAll(PDO::FETCH_ASSOC);

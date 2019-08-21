@@ -1,4 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+//  Access-Control-Allow-Methods : "GET,POST,PUT,DELETE,OPTIONS";
+
 if (isset($_POST['submit'])) {
     require "common.php";
     // connect to database
