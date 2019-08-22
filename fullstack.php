@@ -2,8 +2,10 @@
  
  header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 header('Content-type: text/javascript');
-header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+
+// header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
 require 'server.php';
 require 'common.php';
 

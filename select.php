@@ -2,6 +2,8 @@
  
  header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
+
 // require 'server.php';
 // try {
 //    $sqlSelect = "SELECT * FROM `my notes` ORDER BY `ID`";
