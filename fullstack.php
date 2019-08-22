@@ -1,8 +1,45 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+ 
+ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-//  Access-Control-Allow-Methods : "GET,POST,PUT,DELETE,OPTIONS";
+header('Content-type: text/javascript');
+header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+require 'server.php';
+require 'common.php';
 
+//select notes
+    try {
+    //   require "server.php";
+    //   require "common.php";
+          $sql = "SELECT `ID`,`Title`,`Note_Context`  FROM `my notes` ORDER BY `ID`";
+          $statement = $pdo->prepare($sql);
+          $statement ->execute();
+          $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+          echo json_encode($result, JSON_PRETTY_PRINT);
+        } catch(PDOException $error) {
+          echo $sql . "<br>" . $error->getMessage();
+        }
+      
+
+///delete note
+if (isset($_POST["submit"])) {
+  
+    try {
+             
+            
+              $id = $_POST["submit"];
+              $sql = "DELETE FROM `my notes` WHERE ID = :id";
+              $statement = $pdo->prepare($sql);
+              $statement->bindValue(':id', $id);
+              $statement->execute();
+            //   $success = "Note successfully deleted";
+            } catch(PDOException $error) {
+              echo $sql . "<br>" . $error->getMessage();
+            }
+          }
+
+///insert note
 if (isset($_POST['submit'])) {
     require "common.php";
     // connect to database
@@ -47,5 +84,5 @@ if (isset($_POST['submit'])) {
     echo $sql . "<br>" . $error->getMessage();
 }
 }
-?>
 
+?>

@@ -1,14 +1,15 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-
+// header("Access-Control-Allow-Headers: *");
+// header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+header("Access-Control-Allow-Methods: *");
 require 'server.php';
 require 'common.php';
 
 
 
 
-$success = null;
+// $success = null;
 if (isset($_POST["submit"])) {
   
   try {
